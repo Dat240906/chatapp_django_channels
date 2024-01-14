@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="{% static 'chatapp/css/style.css'%}">
+</head>
+
+<body>
+    <div id="main" class="">
+        <div class="header">
+        </div>
+
+        <div class="body display-flex">
+
+            <div class="container-chat-common background-container-show-chat br-7  pd-6 w-100-percent mg-10px h-100-vh position-r">
+                <i class="fa-solid fa-circle fa-beat-fade fa-xs" style="color: #25af23; "></i><p class="total-connect-js" style="display: inline;"> Online: </p>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-group r-0 position-a " height="20" width="20" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#6c98e5" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20.3 8.6-32v-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/> </svg>
+                <div class="white-space-support-hover"></div>
+                <div class="container_for_group br-5">
+                    <div class="container-user backreound-color-container-user mg-10px br-5 dp-inline-bl">
+                        <p class="font-text pd-6 color-white back fz-16px fw-600">usernccccccccccccccame</p>
+                    </div>
+                    <br>
+                    <div class="container-user backreound-color-container-user mg-10px br-5 dp-inline-bl">
+                        <p class="font-text pd-6 color-white back fz-16px fw-600">usernccccc</p>
+                    </div>
+                </div>
+                
+                <div class="container-show-message pd-6 ">
+
+                    <div class="message br-7 background-container-message pd-lr-6 mg-10px bs animation_message">
+                        <h4 class="name color-name-in-message-admin pd-6">Bot</h4>
+                        <p class="message mg-10px fz-1_2em pd-bt-6">kênh nhắn chung!</p>
+                    </div>
+            
+                    
+                </div>
+
+                <div class="container-send-message pd-6 br-7 display-flex position-a bt-0 mg-10px color-container-send-message ">
+                    <input id="chat-message-input" class="pd-6 w-100-percent color-container-send-message bd-none" autofocus type="text" ><br>
+                    <input id="chat-message-submit" class="color-chat-message-submit br-7" type="button" placeholder="Hãy viết gì đó..." autocomplete="off" value="Send"> 
+                </div>
+            </div>
+
+            
+        </div>
+
+    </div>
+    {{ room_name|json_script:"room-name" }}
+
+    
+    
+   
+
+    <script src="{% static 'chatapp/js/chat_public.js'%}"></script>
+    <script src="https://kit.fontawesome.com/0d2d64e695.js" crossorigin="anonymous" async></script>
+</body>
+</html>
