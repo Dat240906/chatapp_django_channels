@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v%5pss=@6liz*@vcbf7h1kiw(gn%+kub$)4xh7asc@e-uuog=l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,10 +74,12 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+            # Sử dụng External Redis URL cho kết nối
+            "hosts": [('redis://red-cmki89a1hbls73a257b0', 6379)],
         },
     },
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
