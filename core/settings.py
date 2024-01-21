@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v%5pss=@6liz*@vcbf7h1kiw(gn%+kub$)4xh7asc@e-uuog=l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -74,12 +74,10 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            # Sử dụng External Redis URL cho kết nối
-            "hosts": [('redis://red-cmki89a1hbls73a257b0', 6379)],
+            "hosts": [("rediss://red-cmki89a1hbls73a257b0:bALXEJZ4dybVznJSnOkR3XVT1NvsGsMG@singapore-redis.render.com:6379/0")],
         },
     },
 }
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
