@@ -106,7 +106,7 @@ while (true) {
     else {break}
 }
 const socket = new WebSocket(
-    'ws://'
+    'wss://'
     + window.location.host
     + '/ws/chat/'
 )
