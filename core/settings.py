@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -74,7 +75,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("rediss://red-cmki89a1hbls73a257b0:bALXEJZ4dybVznJSnOkR3XVT1NvsGsMG@singapore-redis.render.com:6379/0")],
+            "hosts": [("redis://red-cmki89a1hbls73a257b0:6379/0")],
         },
     },
 }
@@ -124,12 +125,15 @@ import os
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 # Nếu bạn có các tệp tĩnh trong các ứng dụng của mình
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'chatapp/static'),
-]
+    os.path.join(BASE_DIR, 'chatapp/static')
+    ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
